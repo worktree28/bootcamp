@@ -1,8 +1,8 @@
 package com.bootcamp.model;
 
+import jakarta.persistence.*;
 import lombok.Data;
 
-import jakarta.persistence.*;
 @Data
 @Entity
 @Table(name = "otps")
@@ -19,10 +19,16 @@ public class OTP {
     @Column(name = "user_id")
     private Long userId;
 
+    public OTP() {
+    }
+
     public OTP(String email) {
         this.email = email;
     }
+
     public void generateOTP() {
         this.otp = ((int) (Math.random() * 1000000)) % 10000;
     }
+
+
 }
